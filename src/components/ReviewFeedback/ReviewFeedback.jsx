@@ -27,7 +27,7 @@ class ReviewFeedback extends Component {
 
     handleSubmit = () => {
         console.log("in handleSubmit REVIEWFEEDBACK");
-        this.props.dispatch({type: "sendFeedback"});
+        this.props.dispatch({ type: "sendFeedback"});
 
     }
 
@@ -52,5 +52,6 @@ class ReviewFeedback extends Component {
     }
 }
 
-const mapReduxStoreToProps = (reduxStore) => ({ reduxStore })
-export default withRouter(connect(mapReduxStoreToProps)(ReviewFeedback));
+//const mapReduxStoreToProps = (reduxStore) => ({ reduxStore })
+//export default withRouter(connect(mapReduxStoreToProps)(ReviewFeedback));
+export default connect()(ReviewFeedback)

@@ -4,6 +4,7 @@ import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom'
+import axios from 'axios';
 
 
 //inputs for redux
@@ -18,6 +19,7 @@ const initialFeedback = {
         support: 0,
         comment: ''
     }
+   
 }
 
 const newFeedback = (state = initialFeedback, action) => {
@@ -42,9 +44,20 @@ const newFeedback = (state = initialFeedback, action) => {
             feedback: feedbackObj
         }
     }
-    else if (action.type ==="sendFeedback"){
-        console.log('sendFeedback');
-        
+    else if (action.type === "sendFeedback"){
+        console.log('sendFeedback', state);
+        const feedbackObj = {
+            feeling: state.feedback.feeling,
+            understanding: state.feedback.understanding,
+            support: state.feedback.support,
+            comment: state.feedback.support 
+        }
+        axios.post('/', feedbackObj).then((response) => {
+            console.log('back from POST', response.data);
+        }).catch((err) =>{
+            console.log(err);
+            alert('nope')
+        })
     }
     return state;
 }
