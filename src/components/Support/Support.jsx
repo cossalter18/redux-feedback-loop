@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux'
 
 class Support extends Component {
+
+
+    constructor() {
+        super();
+        this.state = ''
+    }
+
+    handleChange = event => {
+        console.log("handleChange", event.target.value);
+
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     handleSubmit = () => {
         console.log('in handleSubmit');
+        this.props.dispatch({
+            type: 'newFeedback',
+            payload: this.state
+        })
+        this.props.history.push('/ReviewFeedback')
     }
 
 
@@ -13,7 +33,7 @@ class Support extends Component {
             <div>
                 <h2>Support.jsx</h2>
                 <main id="input">
-                    <input type="number" placeholder="1-10"></input>
+                    <input onChange={this.handleChange} type="number" placeholder="1-10"></input>
                     <button onClick={this.handleSubmit}>Next</button>
 
                 </main>
@@ -22,4 +42,4 @@ class Support extends Component {
     }
 }
 
-export default Support;
+export default connect()(Support);

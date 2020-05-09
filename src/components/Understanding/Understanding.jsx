@@ -4,11 +4,7 @@ import {connect} from 'react-redux'
 class Understanding extends Component {
 
 
-    constructor() {
-        super();
-        this.state = ''
-    }
-
+    
     handleChange = event => {
         console.log("handleChange", event.target.value);
         
@@ -21,9 +17,9 @@ class Understanding extends Component {
         console.log('in handleSubmit');
         this.props.dispatch({
             type: 'newFeedback',
-            payload: this.state
+            payload: this.props.understanding
         })
-        //this.props.history.push('/Feeling')
+        this.props.history.push('/Feeling')
     }
 
 

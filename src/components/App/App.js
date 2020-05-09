@@ -14,7 +14,13 @@ import Comments from "../Comments/Comments"
 class App extends Component {
 
   state = {
-    feedback: []
+    feedback: [{
+      id: '',
+      feeling:'',
+      understanding:'',
+      support:'',
+      comments:'',
+    }]
   }
 
   componentDidMount() {
