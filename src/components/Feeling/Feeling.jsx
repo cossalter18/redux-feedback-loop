@@ -6,24 +6,28 @@ class Feeling extends Component {
 
     constructor() {
         super();
-        this.state = ''
+        this.state = {
+            feeling: 0
+        }
     }
 
-    handleChange = event => {
-        console.log("handleChange", event.target.value);
+    handleChange = (event) => {
+        console.log("handleChange");
 
         this.setState({
-            [event.target.name]: event.target.value
+            feeling: event.target.value
         })
     }
 
-    handleSubmit = () => {
-        console.log('in handleSubmit');
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('in handleSubmit FEELING');
+        const feeling = this.state.feeling
         this.props.dispatch({
-            type: 'newFeedback',
-            payload: this.state
+            type: 'newFeeling',
+            payload: feeling
         })
-        // this.props.history.push('/Support')
+        this.props.history.push('/Support')
     }
 
 
@@ -31,7 +35,7 @@ class Feeling extends Component {
     render() {
         return (
             <div>
-                <h2>Feeling.jsx</h2>
+                <h2>How are you feeling about the new material?</h2>
                 <main id="input">
                     <input onChange={this.handleChange} type="number" placeholder="1-10"></input>
                     <button onClick={this.handleSubmit}>Next</button>

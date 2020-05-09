@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import {Switch, Route} from 'react-router-dom'
+import {HashRouter as Router, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -54,13 +54,15 @@ class App extends Component {
         </header>
        
         <br />
-        <Switch>
+        <Router>
+          <div>
           <Route exact path="/" render= {(props) => <Understanding {...props} feedack={this.state.feedback}/>} />
           <Route path="/Feeling" render={(props) => <Feeling {...props} dispatch={this.props.dispatch} />} />
           <Route path="/Support" render={(props) => <Support {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />} />
           <Route path="/ReviewFeedback" render={(props)=><ReviewFeedback {...props} dispatch={this.props.dispatch}/>}/>
           <Route path="/Comments" render={(props) => <Comments {...props} dispatch={this.props.dispatch} />} />
-        </Switch>
+          </div>
+        </Router>
       </div>
     );
   }

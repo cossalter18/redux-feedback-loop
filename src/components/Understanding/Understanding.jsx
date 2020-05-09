@@ -3,21 +3,30 @@ import {connect} from 'react-redux'
 
 class Understanding extends Component {
 
+   constructor(){
+       super();
+       this.state={
+           understanding: 0
+       }
+   }
+
 
     
-    handleChange = event => {
-        console.log("handleChange", event.target.value);
+    handleChange = (event) => {
+        console.log("handleChange");
         
         this.setState({
-            [event.target.name]: event.target.value
+           understanding: event.target.value
         })
     }
 
-    handleSubmit = () => {
-        console.log('in handleSubmit');
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('in handleSubmit UNDERSTANDING');
+        const understanding = this.state.understanding
         this.props.dispatch({
-            type: 'newFeedback',
-            payload: this.props.understanding
+            type: 'newUnderstanding',
+            payload: understanding
         })
         this.props.history.push('/Feeling')
     }
@@ -27,7 +36,7 @@ class Understanding extends Component {
     render() {
         return (
             <div>
-                <h2>Understanding.jsx</h2>
+                <h2>How well are you understanding the material?</h2>
                 <main id="input">
                     <input onChange={this.handleChange} type="number" placeholder="1-10"></input>
                     <button onClick={this.handleSubmit}>Next</button>

@@ -6,32 +6,35 @@ class Support extends Component {
 
     constructor() {
         super();
-        this.state = ''
+        this.state = {
+            support: 0
+        }
     }
 
     handleChange = event => {
         console.log("handleChange", event.target.value);
 
         this.setState({
-            [event.target.name]: event.target.value
+           support: event.target.value
         })
     }
 
-    handleSubmit = () => {
-        console.log('in handleSubmit');
+    handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('in handleSubmit SUPPORT');
+        const support = this.state.support
         this.props.dispatch({
-            type: 'newFeedback',
-            payload: this.state
+            type: 'newSupport',
+            payload: support
         })
-        this.props.history.push('/ReviewFeedback')
+        this.props.history.push('/Comments')
     }
-
 
 
     render() {
         return (
             <div>
-                <h2>Support.jsx</h2>
+                <h2>How well do you feel supported?</h2>
                 <main id="input">
                     <input onChange={this.handleChange} type="number" placeholder="1-10"></input>
                     <button onClick={this.handleSubmit}>Next</button>
