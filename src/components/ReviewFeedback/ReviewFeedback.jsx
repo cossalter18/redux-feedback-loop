@@ -6,6 +6,10 @@ import { withRouter } from 'react-router-dom';
 
 class ReviewFeedback extends Component {
 
+    handleSubmit=()=>{
+        console.log("in handleSubmit REVIEWFEEDBACK");
+        
+    }
    
 
 
@@ -19,6 +23,8 @@ class ReviewFeedback extends Component {
                 <p><b>Feeling:</b></p>
                 <p><b>Support:</b></p>
                 <p><b>Comments:</b></p>
+
+                <button onClick={this.handleSubmit}>Finish</button>
               
 
 

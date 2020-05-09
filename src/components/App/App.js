@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
+import {Image} from 'react-native'
 
 
 import Understanding from '../Understanding/Understanding'
@@ -50,8 +51,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
         </header>
+
+        <div>
+         <Image
+            source={require('../App/copy.png')}
+         />
+        </div>
        
         <br />
         <Router>
