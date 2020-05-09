@@ -15,17 +15,17 @@ class Comments extends Component {
         console.log("handleChange", event.target.value);
 
         this.setState({
-            comment: event.target.value
+            comments: event.target.value
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         console.log('in handleSubmit COMMENTS');
-        const comment = this.state.comment
+        const comments = this.state.comments
         this.props.dispatch({
             type: 'newComment',
-            payload: comment
+            payload: comments
         })
         this.props.history.push('/ReviewFeedback')
     }
@@ -34,7 +34,7 @@ class Comments extends Component {
             <div>
                 <h2>Any additional comments or concerns to add?</h2>
                 <main id="input">
-                    <input type="text" placeholder="Comments or Concerns"></input>
+                    <input onChange={this.handleChange} type="text" placeholder="Comments or Concerns"></input>
                     <button onClick={this.handleSubmit}>Next</button>
 
                 </main>

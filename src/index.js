@@ -12,22 +12,39 @@ import { Provider } from 'react-redux'
 
 
 const initialFeedback = {
-    feelings: 0,
-    understanding: 0,
-    support:0,
-    comments: ''
+    feedback: {
+        feeling: 0,
+        understanding: 0,
+        support: 0,
+        comment: ''
+    }
 }
 
 const newFeedback = (state = initialFeedback, action) => {
-    console.log('in my reducer:', action );
+    console.log('in my reducer:', action);
     if (action.type === 'newUnderstanding') {
-        return {...state, understanding: action.payload}
-    }else if(action.type === 'newFeeling'){
-        return {...state, feelings: action.payload}
+        return { ...state, understanding: action.payload }
+    } else if (action.type === 'newFeeling') {
+        return { ...state, feelings: action.payload }
     } else if (action.type === 'newSupport') {
-        return {...state, support: action.payload}
+        return { ...state, support: action.payload }
     } else if (action.type === 'newComment') {
-        return {...state, comments: action.payload}
+        return { ...state, comments: action.payload }
+    } else if (action.type === 'clear') {
+        const feedbackObj = {
+            feelings: action.payload.feelings,
+            understanding: action.payload.understanding,
+            support: action.payload.understanding,
+            comment: action.payload.comment
+        }
+        state = {
+            ...state,
+            feedback: feedbackObj
+        }
+    }
+    else if (action.type ==="sendFeedback"){
+        console.log('sendFeedback');
+        
     }
     return state;
 }
@@ -36,7 +53,7 @@ const newFeedback = (state = initialFeedback, action) => {
 //store with reducer for app
 const myStore = createStore(
     combineReducers({
-       newFeedback
+        newFeedback
     }),
 )
 ReactDOM.render(
