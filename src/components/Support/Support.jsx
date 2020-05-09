@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
+
 class Support extends Component {
+    handleSubmit = () => {
+        console.log('in handleSubmit');
+    }
 
 
 
@@ -8,6 +12,11 @@ class Support extends Component {
         return (
             <div>
                 <h2>Support.jsx</h2>
+                <main id="input">
+                    <input type="number" placeholder="1-10"></input>
+                    <button onClick={this.handleSubmit}>Next</button>
+
+                </main>
             </div>
         )
     }
