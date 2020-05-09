@@ -52,7 +52,7 @@ const newFeedback = (state = initialFeedback, action) => {
             support: state.feedback.support,
             comment: state.feedback.support 
         }
-        axios.post('/', feedbackObj).then((response) => {
+        axios.post('/feedback', feedbackObj).then((response) => {
             console.log('back from POST', response.data);
         }).catch((err) =>{
             console.log(err);

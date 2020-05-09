@@ -13,7 +13,22 @@ router.get('/', (req, res) =>{
     })   
 })
 
-
+//POST
+router.post('/', (req, res) =>{
+    console.log('In Post FeedbackRouter');
+    let queryText=`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+    VALUES ($1, $2, $3, $4);`;
+    const values = [req.body] 
+    pool.query(queryText, values)
+    .then((response) => {
+        res.sendStatus(201);
+    }).catch((error) =>{
+        console.log('error in POST', error);
+        res.sendStatus(500)
+        
+    })
+    
+})
 
 
 module.exports = router;
