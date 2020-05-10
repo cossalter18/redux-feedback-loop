@@ -47,8 +47,8 @@ const newFeedback = (state = initialFeedback, action) => {
     } else if (action.type === "sendFeedback"){
         console.log('sendFeedback', state);
         const feedbackObj = {
-            feeling: state.feedback,
-            understanding: state.initialFeedback,
+            feeling: state.feeling,
+            understanding: state.feedback,
             support: state.feedback,
             comment: state.feedback 
         }

@@ -25,10 +25,10 @@ class ReviewFeedback extends Component {
                 <p><b>Feeling:</b>{this.props.feedback.feeling}</p>
                 <p><b>Support:</b>{this.props.feedback.support}</p>
                 <p><b>Comments:</b>{this.props.feedback.comments}</p> */}
-                <p><b>Understanding:</b>{this.props.undertanding}</p>
-                <p><b>Feeling:</b></p>
-                <p><b>Support:</b></p>
-                <p><b>Comments:</b></p>
+                <p><b>Understanding:</b> {this.props.reduxState.understanding}</p>
+                <p><b>Feeling:</b> {this.props.reduxState.feelings}</p>
+                <p><b>Support:</b> {this.props.reduxState.support}</p>
+                <p><b>Comments:</b> {this.props.reduxState.comments}</p>
                 <h3>{JSON.stringify(this.props.reduxState)}</h3>
 
                 <button onClick={this.handleSubmit}>Finish</button>
