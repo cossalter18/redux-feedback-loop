@@ -22,6 +22,24 @@ const initialFeedback = {
    
 }
 
+// const feedbackReducer = (state = initialFeedback, action) => {
+//     console.log('feedbackReducer:', action.payload);
+//     if (action.type === 'sendFeedback') {
+//         console.log('adding feedback', action.payload);
+//         const feedbackObj = {
+//             feeling: action.payload.feeling,
+//             understanding: action.payload.understanding,
+//             support: action.payload.support,
+//             comment: action.payload.comment
+//         }
+//         state = {
+//             ...state,
+//             feedback: feedbackObj
+
+//         }
+
+//     }
+
 const newFeedback = (state = initialFeedback, action) => {
     console.log('in my reducer:', action);
     if (action.type === 'newUnderstanding') {
