@@ -21,6 +21,10 @@ class ReviewFeedback extends Component {
         return (
             <div>
                 <h2>Let's review your feedback!</h2>
+                {/* <p><b>Understanding:</b>{this.props.feedback.understanding}</p>
+                <p><b>Feeling:</b>{this.props.feedback.feeling}</p>
+                <p><b>Support:</b>{this.props.feedback.support}</p>
+                <p><b>Comments:</b>{this.props.feedback.comments}</p> */}
                 <p><b>Understanding:</b>{this.props.undertanding}</p>
                 <p><b>Feeling:</b></p>
                 <p><b>Support:</b></p>

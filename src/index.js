@@ -12,15 +12,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 
-const initialFeedback = {
-    feedback: {
-        feeling: 0,
-        understanding: 0,
-        support: 0,
-        comment: ''
-    }
-   
-}
+const initialFeedback = []
 
 
 
@@ -55,10 +47,10 @@ const newFeedback = (state = initialFeedback, action) => {
     } else if (action.type === "sendFeedback"){
         console.log('sendFeedback', state);
         const feedbackObj = {
-            feeling: state.feedback.feeling,
-            understanding: state.feedback.understanding,
-            support: state.feedback.support,
-            comment: state.feedback.comment 
+            feeling: state.feedback,
+            understanding: state.initialFeedback,
+            support: state.feedback,
+            comment: state.feedback 
         }
         axios.post('/feedback', feedbackObj).then((response) => {
             console.log('back from POST', response.data);
