@@ -18,8 +18,8 @@ router.post('/', (req, res) =>{
     console.log('In Post FeedbackRouter');
     let queryText=`INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
     VALUES ($1, $2, $3, $4);`;
-    const values = [req.body] 
-    pool.query(queryText, values)
+    const feedback = req.body;
+    pool.query(queryText, [feedback.feeling, feedback.understanding, feedback.support, feedback.comment])
     .then((response) => {
         res.sendStatus(201);
     }).catch((error) =>{
