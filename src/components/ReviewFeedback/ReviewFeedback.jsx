@@ -28,6 +28,7 @@ class ReviewFeedback extends Component {
     handleSubmit = () => {
         console.log("in handleSubmit REVIEWFEEDBACK");
         this.props.dispatch({ type: "sendFeedback"});
+        this.props.history.push('/Submit')
 
     }
 
