@@ -16,13 +16,8 @@ import Submit from "../Submit/Submit"
 class App extends Component {
 
   state = {
-    feedback: [{
-      id: '',
-      feeling:'',
-      understanding:'',
-      support:'',
-      comments:'',
-    }]
+    feedback:[],
+    
   }
 
   componentDidMount() {

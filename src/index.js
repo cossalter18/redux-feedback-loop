@@ -22,6 +22,8 @@ const initialFeedback = {
    
 }
 
+
+
 // const feedbackReducer = (state = initialFeedback, action) => {
 //     console.log('feedbackReducer:', action.payload);
 //     if (action.type === 'sendFeedback') {
@@ -56,7 +58,7 @@ const newFeedback = (state = initialFeedback, action) => {
             feeling: state.feedback.feeling,
             understanding: state.feedback.understanding,
             support: state.feedback.support,
-            comment: state.feedback.support 
+            comment: state.feedback.comment 
         }
         axios.post('/feedback', feedbackObj).then((response) => {
             console.log('back from POST', response.data);
