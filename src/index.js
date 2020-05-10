@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 //inputs for redux
-import { createStore, combineReducers } from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 
@@ -32,19 +32,7 @@ const newFeedback = (state = initialFeedback, action) => {
         return { ...state, support: action.payload }
     } else if (action.type === 'newComment') {
         return { ...state, comments: action.payload }
-    } else if (action.type === 'clear') {
-        const feedbackObj = {
-            feelings: action.payload.feelings,
-            understanding: action.payload.understanding,
-            support: action.payload.understanding,
-            comment: action.payload.comment
-        }
-        state = {
-            ...state,
-            feedback: feedbackObj
-        }
-    }
-    else if (action.type === "sendFeedback"){
+    } else if (action.type === "sendFeedback"){
         console.log('sendFeedback', state);
         const feedbackObj = {
             feeling: state.feedback.feeling,

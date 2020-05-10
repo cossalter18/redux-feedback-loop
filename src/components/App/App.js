@@ -52,7 +52,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Feedback!</h1>
-          <p>{JSON.stringify(this.props.reduxState)}</p>
+          {/* <p>{JSON.stringify(this.props.reduxState)}</p> */}
         </header>
         <br/>
         <div className="img">
