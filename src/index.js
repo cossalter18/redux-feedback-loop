@@ -65,9 +65,7 @@ const newFeedback = (state = initialFeedback, action) => {
 
 //store with reducer for app
 const myStore = createStore(
-    combineReducers({
         newFeedback
-    }),
 )
 ReactDOM.render(
     <Provider store={myStore}>

@@ -58,6 +58,7 @@ class App extends Component {
         <div className="img">
             <img src="images/download.jpeg" alt="spongebob"/>
         </div>
+       
         <br />
         <Router>
           <div>
