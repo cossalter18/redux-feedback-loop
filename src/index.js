@@ -14,8 +14,6 @@ import { Provider } from 'react-redux'
 
 const initialFeedback = []
 
-
-
 // const feedbackReducer = (state = initialFeedback, action) => {
 //     console.log('feedbackReducer:', action.payload);
 //     if (action.type === 'sendFeedback') {
@@ -46,13 +44,7 @@ const newFeedback = (state = initialFeedback, action) => {
         return { ...state, comments: action.payload }
     } else if (action.type === "sendFeedback"){
         console.log('sendFeedback', state);
-        const feedbackObj = {
-            feeling: state.feeling,
-            understanding: state.feedback,
-            support: state.feedback,
-            comment: state.feedback 
-        }
-        axios.post('/feedback', feedbackObj).then((response) => {
+        axios.post('/feedback', state).then((response) => {
             console.log('back from POST', response.data);
         }).catch((err) =>{
             console.log(err);
@@ -61,7 +53,6 @@ const newFeedback = (state = initialFeedback, action) => {
     }
     return state;
 }
-
 
 //store with reducer for app
 const myStore = createStore(

@@ -10,8 +10,6 @@ class Understanding extends Component {
        }
    }
 
-
-    
     handleChange = (event) => {
         console.log("handleChange");
         
@@ -30,8 +28,6 @@ class Understanding extends Component {
         })
         this.props.history.push('/Feeling')
     }
-
-
 
     render() {
         return (

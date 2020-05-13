@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 class Support extends Component {
 
-
     constructor() {
         super();
         this.state = {
@@ -29,7 +28,6 @@ class Support extends Component {
         })
         this.props.history.push('/Comments')
     }
-
 
     render() {
         return (

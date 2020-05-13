@@ -7,14 +7,12 @@ import { connect } from 'react-redux';
 
 class ReviewFeedback extends Component {
 
-   
     handleSubmit = () => {
         console.log("in handleSubmit REVIEWFEEDBACK");
         this.props.dispatch({ type: "sendFeedback", payload: this.state});
         this.props.history.push('/Submit')
 
     }
-
 
     render() {
     
@@ -29,7 +27,7 @@ class ReviewFeedback extends Component {
                 <p><b>Feeling:</b> {this.props.reduxState.feelings}</p>
                 <p><b>Support:</b> {this.props.reduxState.support}</p>
                 <p><b>Comments:</b> {this.props.reduxState.comments}</p>
-                <h3>{JSON.stringify(this.props.reduxState)}</h3>
+                {/* <h3>{JSON.stringify(this.props.reduxState)}</h3> */}
 
                 <button onClick={this.handleSubmit}>Finish</button>
 
@@ -39,6 +37,5 @@ class ReviewFeedback extends Component {
         )
     }
 }
-
 
 export default connect()(ReviewFeedback)

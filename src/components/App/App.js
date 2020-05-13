@@ -3,9 +3,7 @@ import axios from 'axios';
 import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
-
-
-
+//import components
 import Understanding from '../Understanding/Understanding'
 import Feeling from '../Feeling/Feeling'
 import Support from '../Support/Support'

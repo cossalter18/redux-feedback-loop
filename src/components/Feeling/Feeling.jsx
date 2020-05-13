@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 class Feeling extends Component {
 
-
     constructor() {
         super();
         this.state = {
@@ -30,8 +29,6 @@ class Feeling extends Component {
         this.props.history.push('/Support')
     }
 
-
-
     render() {
         return (
             <div>
@@ -44,4 +41,5 @@ class Feeling extends Component {
         )
     }
 }
+
 export default connect()(Feeling);
